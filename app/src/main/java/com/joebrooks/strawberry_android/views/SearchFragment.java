@@ -20,6 +20,7 @@ import com.joebrooks.strawberry_android.viewModels.SongViewModel;
 
 public class SearchFragment extends Fragment {
     private SearchViewModel viewModel;
+    private ViewDataBinding binding;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -27,10 +28,11 @@ public class SearchFragment extends Fragment {
 
         viewModel = new ViewModelProvider(this).get(SearchViewModel.class);
 
-        ViewDataBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
-        binding.setLifecycleOwner(this);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
+        binding.setLifecycleOwner(this.getViewLifecycleOwner());
         binding.setVariable(BR.viewModel, viewModel);
 
         return binding.getRoot();
     }
+
 }
