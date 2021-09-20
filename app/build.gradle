@@ -43,12 +43,12 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Lifecycle components
-//    implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
-//    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-runtime:2.0.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
-    def archLifecycleVersion = '2.2.0'
-    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
-
+//    def archLifecycleVersion = '2.2.0'
+//    implementation "androidx.lifecycle:lifecycle-extensions:$archLifecycleVersion"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
+//
 
 }
