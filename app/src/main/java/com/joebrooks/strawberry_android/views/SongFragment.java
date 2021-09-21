@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
@@ -17,8 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.joebrooks.strawberry_android.BR;
 import com.joebrooks.strawberry_android.R;
 import com.joebrooks.strawberry_android.adapter.ListViewAdapter;
-import com.joebrooks.strawberry_android.models.Song;
-import com.joebrooks.strawberry_android.services.FileService;
 import com.joebrooks.strawberry_android.viewModels.SongViewModel;
 
 public class SongFragment extends Fragment {
@@ -40,11 +37,6 @@ public class SongFragment extends Fragment {
 
 
         listview.setAdapter(adapter);
-
-        FileService service = new FileService();
-        for(Song i : service.readAllSong()){
-            adapter.addItem(i.getThumbnail(), "Epik High - Fly");
-        }
 
         return binding.getRoot();
     }
