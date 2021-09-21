@@ -66,11 +66,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void checkVerify() {
+
+
         if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
-                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                checkSelfPermission(Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED ||
+                checkSelfPermission(Manifest.permission.FOREGROUND_SERVICE) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.INTERNET,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.FOREGROUND_SERVICE,
             }, 1);
         }
     }
