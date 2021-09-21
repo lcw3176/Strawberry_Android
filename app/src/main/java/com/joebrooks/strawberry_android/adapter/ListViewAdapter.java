@@ -39,34 +39,33 @@ public class ListViewAdapter extends BaseAdapter {
         final int pos = i;
         final Context context = viewGroup.getContext();
 
-        // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.listview_item, viewGroup, false);
         }
 
-        // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
         ImageView thumbnailImageView = (ImageView) view.findViewById(R.id.thumbnail) ;
         TextView titleTextView = (TextView) view.findViewById(R.id.songTitle) ;
 
-        // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
         Song listViewItem = lst.get(i);
 
-        // 아이템 내 각 위젯에 데이터 반영
         thumbnailImageView.setImageDrawable(new BitmapDrawable(listViewItem.getThumbnail()));
         titleTextView.setText(listViewItem.getName());
 
         return view;
     }
 
-
-    // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(Bitmap thumbnail, String songName) {
+    public void addItem(Bitmap thumbnail, String songName, String id) {
         Song item = new Song();
 
+        item.setId(id);
         item.setName(songName);
         item.setThumbnail(thumbnail);
 
         lst.add(item);
+    }
+
+    public void clear() {
+        lst.clear();
     }
 }
