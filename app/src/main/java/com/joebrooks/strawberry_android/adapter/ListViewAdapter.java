@@ -46,11 +46,13 @@ public class ListViewAdapter extends BaseAdapter {
 
         ImageView thumbnailImageView = (ImageView) view.findViewById(R.id.thumbnail) ;
         TextView titleTextView = (TextView) view.findViewById(R.id.songTitle) ;
+        TextView singerTextView = (TextView) view.findViewById(R.id.singer) ;
 
         Song listViewItem = lst.get(i);
 
         thumbnailImageView.setImageDrawable(new BitmapDrawable(listViewItem.getThumbnail()));
         titleTextView.setText(listViewItem.getName());
+        singerTextView.setText(listViewItem.getSinger());
 
         return view;
     }
@@ -59,6 +61,16 @@ public class ListViewAdapter extends BaseAdapter {
         Song item = new Song();
 
         item.setId(id);
+        item.setName(songName);
+        item.setThumbnail(thumbnail);
+
+        lst.add(item);
+    }
+
+    public void addItemWithSinger(Bitmap thumbnail, String songName, String singer){
+        Song item = new Song();
+
+        item.setSinger(singer);
         item.setName(songName);
         item.setThumbnail(thumbnail);
 
