@@ -2,11 +2,6 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/song"
-        android:title="곡"
-        android:icon="@drawable/play"/>
-
-    <item
         android:id="@+id/search"
         android:title="검색"
         android:icon="@drawable/search"/>
@@ -15,9 +10,4 @@
         android:id="@+id/chart"
         android:title="차트"
         android:icon="@drawable/chart"/>
-
-    <item
-        android:id="@+id/playList"
-        android:title="플레이리스트"
-        android:icon="@drawable/list"/>
 </menu>
