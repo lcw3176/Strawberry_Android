@@ -1,30 +1,31 @@
 package com.joebrooks.strawberry_android.viewModels;
 
+import android.app.Application;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import androidx.lifecycle.ViewModel;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 
 import com.joebrooks.strawberry_android.adapter.ListViewAdapter;
 import com.joebrooks.strawberry_android.models.Song;
 import com.joebrooks.strawberry_android.services.YoutubeService;
 
-public class SearchViewModel extends ViewModel {
-
-    private final YoutubeService youtubeService = new YoutubeService();
+public class SearchViewModel extends AndroidViewModel {
+    private YoutubeService youtubeService;
     private ListViewAdapter adapter;
     private ListView listView;
+
+    public SearchViewModel(@NonNull Application application) {
+        super(application);
+        youtubeService = new YoutubeService(application);
+    }
 
 
     public boolean search(String query){
         adapter.clear();
-
-        for(Song i : youtubeService.search(query)) {
-            adapter.addItem(i.getThumbnail(), i.getName(), i.getId());
-        }
-
-        adapter.notifyDataSetChanged();
+        youtubeService.search(query, adapter);
 
         return false;
     }
@@ -36,8 +37,9 @@ public class SearchViewModel extends ViewModel {
         this.listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                String link = "https://youtube.com/watch?v=";
-                System.out.println(link + ((Song)adapter.getItem(position)).getId());
+
+                Song song = (Song)adapter.getItem(position);
+                youtubeService.download(song.getName(), song.getId());
             }
         });
     }
