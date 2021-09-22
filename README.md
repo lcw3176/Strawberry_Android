@@ -22,8 +22,7 @@
 
 ## 작동 모습
 <div>
-<img src="https://user-images.githubusercontent.com/59993347/134323085-ba65191f-107f-44db-ab22-8ffb58e8ee3f.jpg
-" width=250>
+<img src="https://user-images.githubusercontent.com/59993347/134323085-ba65191f-107f-44db-ab22-8ffb58e8ee3f.jpg" width=250>
 
 <img src="https://user-images.githubusercontent.com/59993347/134323063-f8519a96-d8c0-4498-8610-96a8b8d5cc0c.jpg" width=250>
 
