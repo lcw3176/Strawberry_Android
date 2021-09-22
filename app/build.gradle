@@ -70,8 +70,17 @@ dependencies {
     implementation 'com.google.http-client:google-http-client-jackson2:1.40.0'
 
     // youtube extractor
-    implementation 'com.github.haarigerharald:android-youtubeextractor:2.1.0'
+    implementation 'com.github.HaarigerHarald:android-youtubeExtractor:master-SNAPSHOT'
 
+    // html text decoder
+    implementation 'org.apache.commons:commons-text:1.6'
+
+    // rxjava
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.7'
+
+    // jsoup
+    implementation 'org.jsoup:jsoup:1.11.3'
 }
 
 
