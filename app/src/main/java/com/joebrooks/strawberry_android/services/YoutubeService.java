@@ -109,9 +109,16 @@ public class YoutubeService {
             @Override
             protected void onExtractionComplete(@Nullable SparseArray<YtFile> ytFiles, @Nullable VideoMeta videoMeta) {
                 if (ytFiles != null) {
-                    int itag = ytFiles.keyAt(0);
-                    String downloadUrl = ytFiles.get(itag).getUrl();
-                    fileService.downloadFromUrl(application, downloadUrl, videoName, videoName + ".mp3");
+                    for(int i = 0; i < ytFiles.size(); i++){
+                        int itag = ytFiles.keyAt(i);
+                        if(ytFiles.get(itag).getFormat().getHeight() == -1){
+                            String downloadUrl = ytFiles.get(itag).getUrl();
+                            String renamedTitle = videoMeta.getTitle().replace("/", " ");
+                            fileService.downloadFromUrl(application, downloadUrl, renamedTitle,  renamedTitle + ".mp3");
+                            break;
+                        }
+
+                    }
                 }
             }
         }.extract(videoUrl);
