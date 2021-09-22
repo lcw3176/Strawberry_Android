@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 public class Song {
     private String id;
     private String name;
+    private String singer;
     private Bitmap thumbnail;
 
     public void setId(String id){
@@ -21,6 +22,14 @@ public class Song {
 
     public String getName(){
         return this.name;
+    }
+
+    public void setSinger(String singer){
+        this.singer = singer;
+    }
+
+    public String getSinger(){
+        return this.singer;
     }
 
     public void setThumbnail(Bitmap thumbnail){
